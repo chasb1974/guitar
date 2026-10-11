@@ -145,7 +145,7 @@
             margin: 0;
         }
 
-        /* 3. БЛОК ПОРТФОЛИО */
+        /* 3. БЛОК ПОРТФОЛИО (ВИДЕО) */
         .portfolio-section {
             padding: 90px 0;
             background-color: #0b0b0b;
@@ -166,11 +166,12 @@
             padding-bottom: 56.25%;
             height: 0;
         }
-        .video-wrapper iframe {
+        .video-wrapper iframe, .video-wrapper video {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             border: 0;
+            object-fit: cover;
         }
         .video-info {
             padding: 20px;
@@ -184,6 +185,38 @@
             margin: 0;
             font-size: 0.95rem;
             color: #aaa;
+        }
+
+        /* 3.1. БЛОК АУДИОПРИМЕРОВ (MP3) */
+        .audio-section {
+            padding: 70px 0;
+            background-color: #0e0e0e;
+            border-top: 1px solid #1c1c1c;
+        }
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .audio-card {
+            background: #161616;
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .audio-title {
+            font-size: 1.05rem;
+            color: #fff;
+            font-weight: bold;
+        }
+        .audio-card audio {
+            width: 100%;
+            outline: none;
         }
 
         /* 4. БЛОК ОБОРУДОВАНИЯ */
@@ -386,11 +419,62 @@
         </div>
     </section>
 
-    <!-- 3. БЛОК ПОРТФОЛИО -->
+    <!-- 3. БЛОК ПОРТФОЛИО (ВИДЕО) -->
     <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <h2>Примеры <span>работ</span></h2>
+            <h2>Видео <span>портфолио</span></h2>
             <div class="video-grid">
+                <!-- Ваше новое загруженное видео с электрогитарой -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls="" preload="metadata">
+                            <source src="funk.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео элемент.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Студийная импровизация и сольная партия</h3>
+                        <p>Работа с электрогитарой в DAW</p>
+                    </div>
+                </div>
+
+                <!-- Видео с нейлоновой гитарой -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls="" preload="metadata">
+                            <source src="nylon.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео элемент.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Запись классической гитары (Нейлон)</h3>
+                        <p>Интимный студийный звук, детальный разбор партии</p>
+                    </div>
+                </div>
+
+                <!-- MYNBAY - БҰЗЫҚ -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ceobWjtdsP8" allowfullscreen=""></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>MYNBAY — БҰЗЫҚ</h3>
+                        <p>Студийная сессия и гитарные партии</p>
+                    </div>
+                </div>
+
+                <!-- Zhamil Turan -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/712wl7f74yI" allowfullscreen=""></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Zhamil Turan — Ночь и день</h3>
+                        <p>Премьера песни (участие в аранжировке и записи)</p>
+                    </div>
+                </div>
+
+                <!-- Предыдущие видео -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/rQpCtfNVDaw" allowfullscreen=""></iframe>
@@ -424,6 +508,30 @@
         </div>
     </section>
 
+    <!-- 3.1. БЛОК АУДИОПРИМЕРОВ (MP3 ПЛЕЕРЫ) -->
+    <section class="audio-section">
+        <div class="container">
+            <h2>Аудио <span>примеры</span></h2>
+            <div class="audio-grid">
+                <div class="audio-card">
+                    <div class="audio-title">🎸 Гитарное соло (Рок / Поп)</div>
+                    <audio controls="">
+                        <source src="track1.mp3" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио элемент.
+                    </audio>
+                </div>
+
+                <div class="audio-card">
+                    <div class="audio-title">🎶 Акустическая аранжировка</div>
+                    <audio controls="">
+                        <source src="track2.mp3" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио элемент.
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 4. БЛОК ОБОРУДОВАНИЯ -->
     <section id="gear" class="gear-section">
         <div class="container">
@@ -439,7 +547,7 @@
                 </div>
 
                 <div class="gear-category">
-                    <h3>Звуковой管 тракт</h3>
+                    <h3>Звуковой тракт</h3>
                     <ul class="gear-list">
                         <li><strong>Аудиоинтерфейс:</strong> RME Babyface</li>
                         <li><strong>Микрофон:</strong> Rode NT1-A</li>
@@ -458,6 +566,31 @@
             
             <div class="contact-container">
                 <!-- Карточка с адресами через косую черту -->
+                <div class="email-card">
+                    <div class="email-label">Электронная почта:</div>
+                    <div class="email-line">
+                        <a href="mailto:chasb@mail.ru" class="email-link">chasb@mail.ru</a>
+                        <span style="color: #666666; padding: 0 6px;">/</span>
+                        <a href="mailto:chasb1974@gmail.com" class="email-link">chasb1974@gmail.com</a>
+                    </div>
+                </div>
+
+                <!-- Разделитель -->
+                <div class="contact-divider">
+                    <span>или мессенджеры</span>
+                </div>
+
+                <!-- Кнопки быстрых переходов -->
+                <div class="social-links">
+                    <a href="https://wa.me/77017888012" target="_blank" class="social-btn wa">Написать в WhatsApp</a>
+                    <a href="https://t.me/SergeyChasb" target="_blank" class="social-btn tg">Написать в Telegram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
                 <div class="email-card">
                     <div class="email-label">Электронная почта:</div>
                     <div class="email-line">
