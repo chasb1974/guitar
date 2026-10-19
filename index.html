@@ -1,618 +1,596 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сергей — Сессионная запись гитары в Алматы</title>
-    <style>
-        /* Общие стили */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #0b0b0b;
-            color: #ffffff;
-            scroll-behavior: smooth;
-        }
-        h2 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
-        h2 span {
-            color: #ffb703;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Сергей Ча — сессионный гитарист из Алматы. Живая запись акустики, нейлона и электро, переигровка ИИ-гитары. Бесплатный пробный фрагмент.">
+<title>Сергей Ча — сессионная гитара | Session guitarist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: stage-dark single theme (owner's existing black + amber identity). Hero = six live strings you can strum; sections read like a session track sheet. */
+:root{
+  --bg:#0c0a08; --bg2:#14110d; --surface:#1b1712; --line:#2c251d;
+  --fg:#f4ece1; --muted:#a8998a; --accent:#ffb703; --accent2:#ff8a3d; --ink:#140e05;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.5rem,4.5vw,2.4rem);font-weight:700}
+h2 em{font-style:normal;color:var(--accent)}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+section{padding-block:clamp(56px,9vw,96px)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;max-width:40em}
+.sec-head p{margin:0;color:var(--muted)}
 
-        /* 1. ГЛАВНЫЙ ЭКРАН (HERO) */
-        .hero-section {
-            position: relative;
-            background: url('your-guitar-image.jpg') center center / cover no-repeat;
-            background-color: #0d0d0d;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 850px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero-title {
-            color: #ffffff;
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin: 0 0 20px 0;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            text-align: center;
-            width: 100%;
-        }
-        .hero-subtitle {
-            color: #ffb703;
-            font-size: 1.3rem;
-            line-height: 1.5;
-            margin: 0 0 25px 0;
-            font-weight: 400;
-            text-align: center;
-        }
-        .promo-badge {
-            display: inline-block;
-            background: #e63946;
-            color: #fff;
-            padding: 8px 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            border-radius: 4px;
-            margin-bottom: 35px;
-            letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
-        }
-        .hero-btn {
-            display: inline-block;
-            background-color: #ffb703;
-            color: #000000;
-            text-decoration: none;
-            padding: 18px 45px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .hero-btn:hover {
-            background-color: #fca311;
-            transform: scale(1.03);
-        }
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--fg);text-decoration:none;white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav ul{display:flex;gap:18px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:600}
+.nav ul a:hover{color:var(--fg)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
+.lang button{font:600 .75rem var(--mono);background:none;border:0;color:var(--muted);padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--ink)}
+@media (max-width:760px){.nav ul{display:none}.lang{margin-left:auto}}
 
-        /* 2. БЛОК ОПЫТА И О СЕБЕ */
-        .about-section {
-            padding: 90px 0;
-            background-color: #111111;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .about-card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border-bottom: 3px solid #222;
-            transition: border-color 0.3s;
-        }
-        .about-card:hover {
-            border-color: #ffb703;
-        }
-        .about-card h3 {
-            color: #ffb703;
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            font-weight: 900;
-        }
-        .about-card p {
-            color: #ccc;
-            font-size: 1.05rem;
-            line-height: 1.5;
-            margin: 0;
-        }
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% 10%,#3a2508 0%,transparent 55%),var(--bg)}
+#strings{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:clamp(48px,8vw,96px);pointer-events:none}
+.hero .wrap a,.hero .wrap button{pointer-events:auto}
+.hero-text{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1{font-size:clamp(2.1rem,6.4vw,4.4rem);font-weight:800;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{margin:0;font-size:clamp(1.02rem,2.2vw,1.2rem);color:#e2d6c6;max-width:32em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--accent);transition:transform .2s,box-shadow .2s,background .2s}
+.btn.primary{background:var(--accent);color:var(--ink)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px var(--accent)}
+.btn.ghost{color:var(--fg);background:rgba(255,183,3,.06)}
+.btn.ghost:hover{background:rgba(255,183,3,.14)}
+.hint{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sound{font:500 .8rem var(--mono);color:var(--muted);background:none;border:1px dashed var(--line);border-radius:999px;padding:7px 12px;cursor:pointer}
+.sound[aria-pressed="true"]{color:var(--accent);border-color:var(--accent)}
+.hint span{font-size:.85rem;color:var(--muted)}
+.photo{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);transform:rotate(1.5deg);box-shadow:0 30px 60px -20px #000}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:contrast(1.05)}
+.photo .ph{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;color:var(--muted);background:repeating-linear-gradient(135deg,var(--surface) 0 14px,var(--bg2) 14px 28px)}
+.photo .ph b{font-family:var(--display);color:var(--fg);font-size:1rem}
+.photo.nophoto img{display:none}.photo.nophoto .ph{display:flex}
+.photo .tag{position:absolute;left:12px;bottom:12px;font:500 .72rem var(--mono);background:rgba(0,0,0,.6);padding:5px 9px;border-radius:6px;color:var(--fg)}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.photo{max-width:320px;transform:none}}
 
-        /* 3. БЛОК ПОРТФОЛИО (ВИДЕО) */
-        .portfolio-section {
-            padding: 90px 0;
-            background-color: #0b0b0b;
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .video-card {
-            background: #141414;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        .video-wrapper iframe, .video-wrapper video {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-            object-fit: cover;
-        }
-        .video-info {
-            padding: 20px;
-        }
-        .video-info h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.15rem;
-            color: #fff;
-        }
-        .video-info p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #aaa;
-        }
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.stat{background:var(--bg2);padding:28px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.stat b{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.stat span{color:var(--muted);font-size:.92rem}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
-        /* 3.1. БЛОК АУДИОПРИМЕРОВ (MP3) */
-        .audio-section {
-            padding: 70px 0;
-            background-color: #0e0e0e;
-            border-top: 1px solid #1c1c1c;
-        }
-        .audio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .audio-card {
-            background: #161616;
-            border: 1px solid #222;
-            padding: 20px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .audio-title {
-            font-size: 1.05rem;
-            color: #fff;
-            font-weight: bold;
-        }
-        .audio-card audio {
-            width: 100%;
-            outline: none;
-        }
+/* AI -> live */
+.ai{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ai > div{min-width:0;border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--surface);display:flex;flex-direction:column;gap:14px}
+.ai .live{border-color:var(--accent)}
+.wave{height:56px;width:100%}
+.ai h3{font-size:1.05rem}
+.ai p{margin:0;color:var(--muted)}
+@media (max-width:640px){.ai{grid-template-columns:1fr}}
 
-        /* 4. БЛОК ОБОРУДОВАНИЯ */
-        .gear-section {
-            padding: 90px 0;
-            background-color: #111111;
-        }
-        .gear-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .gear-category {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #252525;
-        }
-        .gear-category h3 {
-            color: #ffb703;
-            margin-top: 0;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-        .gear-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .gear-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #252525;
-            font-size: 0.95rem;
-            color: #ccc;
-            line-height: 1.4;
-        }
-        .gear-list li strong {
-            color: #fff;
-        }
+/* videos */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.vcard:hover{transform:translateY(-4px);border-color:#4a3c2c}
+.vbox{position:relative;aspect-ratio:16/9;max-width:100%;background:linear-gradient(135deg,#2a1d0c,#120e09)}
+.vbox img,.vbox video,.vbox iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vbox button.play{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.vbox .disc{width:64px;height:64px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(255,183,3,.18);transition:transform .25s}
+.vbox button.play:hover .disc{transform:scale(1.1)}
+.vbox .disc::after{content:"";border-left:18px solid var(--ink);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.vbox .cover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:16px;background:radial-gradient(80% 90% at 80% 20%,rgba(255,183,3,.28),transparent 60%),linear-gradient(135deg,#2a1d0c,#0f0b07)}
+.vbox .cover b{font-family:var(--display);font-size:1.05rem;line-height:1.2;max-width:75%}
+.vbox .cover span{font:500 .7rem var(--mono);color:var(--muted);letter-spacing:.1em}
+.vbox .soon{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font:500 .8rem var(--mono);color:var(--muted)}
+.vcard.missing video{display:none}.vcard.missing .soon{display:flex}
+.vinfo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
+.vinfo h3{font-size:1rem;font-weight:700}
+.vinfo p{margin:0;color:var(--muted);font-size:.92rem}
+.chip{align-self:flex-start;font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(255,183,3,.35);border-radius:999px;padding:3px 9px}
 
-        /* 5. БЛОК КОНТАКТОВ */
-        .contact-section {
-            padding: 90px 0;
-            background-color: #0b0b0b;
-            text-align: center;
-        }
-        .contact-container {
-            max-width: 460px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        .email-card {
-            background-color: #141414;
-            border: 1px solid #252525;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .email-label {
-            color: #ffb703;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin: 0 0 12px 0;
-            letter-spacing: 0.5px;
-        }
-        .email-line {
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            word-break: break-word;
-            line-height: 1.5;
-        }
-        .email-link {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .email-link:hover {
-            color: #ffb703;
-        }
-        .contact-divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #444444;
-        }
-        .contact-divider::before, .contact-divider::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background-color: #222;
-        }
-        .contact-divider span {
-            padding: 0 15px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-        }
-        .social-btn {
-            display: block;
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05rem;
-            box-sizing: border-box;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s, filter 0.2s;
-            text-align: center;
-        }
-        .social-btn.wa { background-color: #25d366; color: #fff; }
-        .social-btn.tg { background-color: #0088cc; color: #fff; }
-        .social-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
+.free{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:14px;border:1px dashed var(--accent);background:rgba(255,183,3,.05)}
+.free p{margin:0;max-width:38em;min-width:0;font-size:1.05rem}
 
-        /* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (до 480px) */
-        @media screen and (max-width: 480px) {
-            .hero-content {
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-            .hero-title {
-                font-size: 1.75rem;
-                line-height: 1.3;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-            .hero-subtitle {
-                font-size: 1.05rem;
-                line-height: 1.4;
-                margin-bottom: 20px;
-            }
-            .promo-badge {
-                font-size: 0.85rem;
-                padding: 6px 14px;
-                margin-bottom: 30px;
-            }
-            .hero-btn {
-                width: 90%;
-                padding: 15px 20px;
-                font-size: 1rem;
-                box-sizing: border-box;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
-            .email-line {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+/* audio */
+.tracks{display:grid;gap:10px}
+.track{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:16px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .3s}
+.track.on{border-color:var(--accent)}
+.tp{width:48px;height:48px;border-radius:50%;border:0;background:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.tp::after{content:"";border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.track.on .tp::after{border:0;width:14px;height:16px;margin:0;background:linear-gradient(90deg,var(--ink) 0 35%,transparent 35% 65%,var(--ink) 65%)}
+.tm{min-width:0;display:flex;flex-direction:column;gap:2px}
+.tm span{font-size:.85rem;color:var(--muted)}
+.tbar{height:4px;background:var(--line);border-radius:2px;margin-top:8px;cursor:pointer;overflow:hidden}
+.tbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.track time{font:400 .8rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* featured guitar */
+.axe{position:relative;margin:24px 0 0;border-radius:18px;overflow:hidden;aspect-ratio:21/9;max-width:100%;border:1px solid rgba(255,183,3,.35);box-shadow:0 0 0 1px rgba(255,183,3,.08),0 30px 80px -30px rgba(255,138,61,.45)}
+.axe img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;transform:scale(1.04);filter:saturate(1.15) contrast(1.05)}
+.axe::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,10,8,.92) 0%,rgba(12,10,8,.55) 38%,transparent 70%),radial-gradient(60% 80% at 75% 50%,transparent 40%,rgba(12,10,8,.5))}
+.axe::after{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),rgba(255,183,3,.10) calc(100%/6 - 1px) calc(100%/6));mix-blend-mode:screen;pointer-events:none}
+.axe figcaption{position:absolute;z-index:2;left:clamp(16px,4vw,40px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;max-width:60%}
+.axe b{font-family:var(--display);font-size:clamp(1.3rem,3.6vw,2.3rem);line-height:1.1}
+.axe .spec{font:500 .78rem var(--mono);color:var(--accent);letter-spacing:.06em}
+.axe .shine{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,transparent 35%,rgba(255,220,150,.18) 50%,transparent 65%);transform:translateX(-100%);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .axe img{animation:drift 18s ease-in-out infinite alternate}
+  .axe .shine{animation:shine 6s ease-in-out 1.5s infinite}
+}
+@keyframes drift{from{transform:scale(1.04) translateX(0)}to{transform:scale(1.12) translateX(-2%)}}
+@keyframes shine{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@media (max-width:640px){.axe{aspect-ratio:4/3}.axe::before{background:linear-gradient(0deg,rgba(12,10,8,.95) 0%,rgba(12,10,8,.4) 55%,transparent 80%)}.axe figcaption{top:auto;bottom:18px;transform:none;max-width:none;right:16px}}
+
+/* about */
+.about{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}
+.about figure{margin:0}
+.about figure img{border-radius:10px;border:1px solid var(--line);aspect-ratio:1;max-width:100%;width:100%;object-fit:cover}
+.about figcaption{font:500 .75rem var(--mono);color:var(--muted);margin-top:8px}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:12px;min-width:0}
+.facts li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.facts .k{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+@media (max-width:640px){.about{grid-template-columns:1fr}.about figure{max-width:200px}.facts li{grid-template-columns:1fr;gap:2px}}
+
+/* stage gallery */
+.stage{display:grid;grid-template-columns:1.2fr 1.2fr .8fr;gap:12px;margin-top:36px}
+.stage figure{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:100%}
+.stage img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.stage figure:hover img{transform:scale(1.06)}
+.stage figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font:500 .75rem var(--mono);color:var(--fg);background:linear-gradient(transparent,rgba(0,0,0,.8))}
+@media (max-width:640px){.stage{grid-template-columns:1fr 1fr}.stage figure:first-child{grid-column:1/-1;aspect-ratio:1}}
+
+/* track sheet */
+.sheet{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.ch{font-family:var(--mono);color:var(--accent);white-space:nowrap}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:rgba(255,183,3,.05)}
+.kaz{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.bars{display:flex;gap:4px}
+.bar{height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;font:500 .8rem var(--mono);color:var(--ink);background:var(--accent);transform-origin:left;min-width:0}
+.bar.b2{background:#f29e2e}.bar.b3{background:var(--accent2)}
+.kaz.in .bar{animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+.kaz.in .bar.b2{animation-delay:.15s}.kaz.in .bar.b3{animation-delay:.3s}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);color:var(--accent);font-size:.85rem}
+.steps b{font-size:1.02rem}
+.steps p{margin:0;color:var(--muted);font-size:.94rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* gear */
+.gear{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gear > div{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.gear h3{font-size:.95rem;margin-bottom:10px;color:var(--accent)}
+.gear ul{list-style:none;margin:0;padding:0}
+.gear li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.gear li:last-child{border-bottom:0}
+.gear li span{color:var(--muted);font-size:.9rem}
+.gear li b{text-align:right;font-weight:600}
+@media (max-width:640px){.gear{grid-template-columns:1fr}}
+
+/* contacts */
+.contact{background:radial-gradient(90% 120% at 10% 100%,#3a2508 0%,transparent 60%),var(--bg2);border-top:1px solid var(--line)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.c{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.c > div{min-width:0}
+.c .v{font-family:var(--mono);font-size:.9rem;word-break:break-all;color:var(--fg);text-decoration:none}
+a.v:hover{color:var(--accent)}
+.c button{font:600 .75rem var(--body);padding:7px 11px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:999px;cursor:pointer;flex:none}
+.c button:hover{border-color:var(--accent)}
+footer{padding-block:28px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:none;padding:13px 18px;border-radius:999px;background:var(--accent);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:0 10px 30px -6px rgba(0,0,0,.7)}
+@media (max-width:760px){.fab{display:inline-flex}}
+
+/* reveal: only elements below the fold at load get hidden, so the page is complete at rest */
+.rv{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.pre{opacity:0;transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pre{opacity:1;transform:none;transition:none}.kaz.in .bar{animation:none}}
+</style>
 </head>
 <body>
 
-    <!-- 1. ГЛАВНЫЙ ЭКРАН -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Профессиональная<br>запись гитары</h1>
-            <p class="hero-subtitle">Живой студийный звук, железный тайминг и безупречные эмоции для вашего трека</p>
-            <div class="promo-badge">Первый заказ — БЕСПЛАТНО!</div>
-            <a href="#portfolio" class="hero-btn">Слушать работы</a>
-        </div>
-    </section>
+<nav class="nav" aria-label="Разделы">
+  <div class="wrap">
+    <a class="brand" href="#top">Сергей <span>Ча</span></a>
+    <ul>
+      <li><a href="#portfolio" data-en="Work">Работы</a></li>
+      <li><a href="#about" data-en="About">Обо мне</a></li>
+      <li><a href="#how" data-en="How it works">Как работаем</a></li>
+      <li><a href="#contacts" data-en="Contact">Контакты</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Язык">
+      <button type="button" id="lang-ru" aria-pressed="true">RU</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
 
-    <!-- 2. БЛОК ОПЫТА -->
-    <section class="about-section">
-        <div class="container">
-            <h2>Почему <span>выбирают меня</span></h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>25+</h3>
-                    <p>Лет профессионального студийного и концертного опыта</p>
-                </div>
-                <div class="about-card">
-                    <h3>15%</h3>
-                    <p>Казахстанской эстрады аккомпанировано моими гитарными партиями</p>
-                </div>
-                <div class="about-card">
-                    <h3>100%</h3>
-                    <p>Живое исполнение под ключ в любых стилях: от романса до рока. Переиграю ИИ!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="hero" id="top">
+  <canvas id="strings" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="label" data-en="Session guitarist · Almaty · remote worldwide">Сессионный гитарист · Алматы · удалённо по всему миру</span>
+      <h1 data-en="Live <em>guitar</em><br>for your track">Живая <em>гитара</em><br>для вашего трека</h1>
+      <p class="lead" data-en="25+ years in studios and on stage. Acoustic, nylon and electric parts for producers, artists and songwriters. I replace AI guitar from Suno and Udio with real playing and real phrasing.">25 лет в студиях и на сцене. Записываю акустику, нейлон и электро для аранжировщиков, артистов и авторов. Переигрываю ИИ-гитару из Suno и Udio живыми руками и со своей фразировкой.</p>
+      <div class="cta">
+        <a class="btn primary" href="#portfolio" data-en="Listen to my work">Слушать работы</a>
+        <a class="btn ghost" href="https://t.me/SergeyChasb" target="_blank" rel="noopener" data-en="Free 30-sec sample">Бесплатный фрагмент</a>
+      </div>
+      <div class="hint">
+        <button type="button" class="sound" id="sound" aria-pressed="false" data-en="Sound: off">Звук струн: выкл</button>
+        <span data-en="Run your mouse or finger across the strings">Проведите мышкой или пальцем по струнам</span>
+      </div>
+    </div>
+    <figure class="photo" id="photo" style="margin:0">
+      <img src="img/studio.jpg" alt="Сергей Ча записывает акустическую гитару в студии" onerror="this.parentElement.classList.add('nophoto')">
+      <div class="ph"><b>Сергей Ча</b><span>session guitar</span></div>
+      <span class="tag">Fender · Takamine · Rodriguez</span>
+    </figure>
+  </div>
+</header>
 
-    <!-- 3. БЛОК ПОРТФОЛИО (ВИДЕО) -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <h2>Видео <span>портфолио</span></h2>
-            <div class="video-grid">
-                <!-- Ваше новое загруженное видео с электрогитарой -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls="" preload="metadata">
-                            <source src="funk.mp4" type="video/mp4">
-                            Ваш браузер не поддерживает видео элемент.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>Студийная импровизация и сольная партия</h3>
-                        <p>Работа с электрогитарой в DAW</p>
-                    </div>
-                </div>
+<div class="stats" aria-label="Опыт в цифрах">
+  <div class="stat"><b data-count="25" data-suffix="+">25+</b><span data-en="years in studio and on stage">лет в студии и на сцене</span></div>
+  <div class="stat"><b data-count="3">3</b><span data-en="feature films with my guitar">фильма с моей гитарой</span></div>
+  <div class="stat"><b data-count="3">3</b><span data-en="guitars: nylon, acoustic, electric">гитары: нейлон, акустика, электро</span></div>
+  <div class="stat"><b data-count="6">6</b><span data-en="songs recorded in one day">песен за один день</span></div>
+</div>
 
-                <!-- Видео с нейлоновой гитарой -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls="" preload="metadata">
-                            <source src="nylon.mp4" type="video/mp4">
-                            Ваш браузер не поддерживает видео элемент.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>Запись классической гитары (Нейлон)</h3>
-                        <p>Интимный студийный звук, детальный разбор партии</p>
-                    </div>
-                </div>
+<section id="ai"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="AI → live">ИИ → живое</span>
+    <h2 data-en="Your AI track needs <em>real hands</em>">Вашему ИИ-треку нужны <em>живые руки</em></h2>
+    <p data-en="AI guitar sounds flat: same strokes, no breath, odd voicings. I keep your idea and play it the way a guitarist would.">ИИ-гитара звучит плоско: одинаковые удары, нет дыхания, странные аккорды. Я сохраняю вашу идею и играю её так, как сыграл бы гитарист.</p>
+  </div>
+  <div class="ai rv">
+    <div><span class="chip">Suno / Udio</span><canvas class="wave" data-mode="ai" aria-hidden="true"></canvas><h3 data-en="Before: generated">До: сгенерировано</h3><p data-en="Quantized, every hit the same, muddy in the mix.">Всё по сетке, все удары одинаковые, гитара тонет в миксе.</p></div>
+    <div class="live"><span class="chip">Live take</span><canvas class="wave" data-mode="live" aria-hidden="true"></canvas><h3 data-en="After: played live">После: сыграно вживую</h3><p data-en="Dynamics, slides, ghost notes, and a clean WAV ready for mixing.">Динамика, слайды, призвуки и чистый WAV, готовый к сведению.</p></div>
+  </div>
+</div></section>
 
-                <!-- MYNBAY - БҰЗЫҚ -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/ceobWjtdsP8" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>MYNBAY — БҰЗЫҚ</h3>
-                        <p>Студийная сессия и гитарные партии</p>
-                    </div>
-                </div>
+<section id="portfolio" style="background:var(--bg2)"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Portfolio">Портфолио</span>
+    <h2 data-en="Hear <em>it</em>">Послушайте <em>сами</em></h2>
+  </div>
+  <div class="vgrid">
+    <article class="vcard rv">
+      <div class="vbox"><video controls preload="none" playsinline poster="img/funk-poster.jpg" src="media/funk.mp4" onerror="this.closest('.vcard').classList.add('missing')"></video><span class="soon" data-en="Video coming soon">Видео скоро</span></div>
+      <div class="vinfo"><span class="chip" data-en="Electric · funk">Электро · фанк</span><h3 data-en="Studio funk improvisation">Студийная фанк-импровизация</h3><p data-en="Rhythm and solo on electric guitar">Ритм и соло на электрогитаре</p></div>
+    </article>
+    <article class="vcard rv">
+      <div class="vbox"><video controls preload="none" playsinline poster="img/nylon-poster.jpg" src="media/nylon.mp4" onerror="this.closest('.vcard').classList.add('missing')"></video><span class="soon" data-en="Video coming soon">Видео скоро</span></div>
+      <div class="vinfo"><span class="chip" data-en="Nylon">Нейлон</span><h3 data-en="Classical guitar recording">Запись классической гитары</h3><p data-en="Intimate studio sound, Manuel Rodriguez C11">Тёплый студийный звук, Manuel Rodriguez C11</p></div>
+    </article>
+    <article class="vcard rv" data-yt="ceobWjtdsP8"><div class="vbox"></div>
+      <div class="vinfo"><span class="chip" data-en="Session">Сессия</span><h3>MYNBAY — БҰЗЫҚ</h3><p data-en="Studio session and guitar parts">Студийная сессия и гитарные партии</p></div></article>
+    <article class="vcard rv" data-yt="712wl7f74yI"><div class="vbox"></div>
+      <div class="vinfo"><span class="chip" data-en="Arrangement">Аранжировка</span><h3 data-en="Zhamil Turan — Night and Day">Zhamil Turan — Ночь и день</h3><p data-en="Arrangement and guitar recording">Участие в аранжировке и записи</p></div></article>
+    <article class="vcard rv" data-yt="rQpCtfNVDaw"><div class="vbox"></div>
+      <div class="vinfo"><span class="chip" data-en="Session">Сессия</span><h3>Ayree — Okpeli sezim</h3><p data-en="Session guitar parts">Сессионные гитарные партии</p></div></article>
+    <article class="vcard rv" data-yt="TEbuh3g_O5Q"><div class="vbox"></div>
+      <div class="vinfo"><span class="chip" data-en="Pop">Поп</span><h3 data-en="Dreams Come Alive">Оживают мечты</h3><p data-en="Commercial pop production">Коммерческий эстрадный проект</p></div></article>
+    <article class="vcard rv" data-yt="zC6y7sSlA2c" data-start="164"><div class="vbox"></div>
+      <div class="vinfo"><span class="chip" data-en="Electric solo">Соло на электро</span><h3 data-en="Pop project, solo at 2:44">Эстрадный проект, соло с 2:44</h3><p data-en="Dense band sound and electric solo">Плотное звучание и соло на электрогитаре</p></div></article>
+  </div>
+</div></section>
 
-                <!-- Zhamil Turan -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/712wl7f74yI" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Zhamil Turan — Ночь и день</h3>
-                        <p>Премьера песни (участие в аранжировке и записи)</p>
-                    </div>
-                </div>
+<section id="audio"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Audio demos">Аудиодемо</span>
+    <h2 data-en="Just <em>listen</em>">Просто <em>послушайте</em></h2>
+  </div>
+  <div class="tracks rv">
+    <div class="track" data-src="media/rock-lead.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Rock lead">Рок-соло</b><span data-en="Electric · Fender">Электро · Fender</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
+    <div class="track" data-src="media/nylon-mix.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Nylon in the mix">Нейлон в миксе</b><span data-en="Classical · Rodriguez">Классика · Rodriguez</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
+    <div class="track" data-src="media/funk-demo.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Funk rhythm">Фанк-ритм</b><span data-en="Electric · clean">Электро · чистый звук</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
+  </div>
+</div></section>
 
-                <!-- Предыдущие видео -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/rQpCtfNVDaw" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Ayree — Okpeli sezim</h3>
-                        <p>Запись сессионных гитарных партий для трека</p>
-                    </div>
-                </div>
+<section id="free" style="padding-block:48px"><div class="wrap">
+  <div class="free rv">
+    <p data-en="<b>Hear it before you decide.</b> Send your track and I'll record 15–30 seconds of guitar on it for free."><b>Услышьте результат до решения.</b> Пришлите трек, и я бесплатно запишу на нём 15–30 секунд гитары.</p>
+    <a class="btn primary" href="https://t.me/SergeyChasb" target="_blank" rel="noopener" data-en="Send my track">Отправить трек</a>
+  </div>
+</div></section>
 
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/TEbuh3g_O5Q" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Оживают Мечты</h3>
-                        <p>Пример работы над коммерческим эстрадным проектом</p>
-                    </div>
-                </div>
+<section id="skills" style="background:var(--bg2)"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Track sheet">Трек-лист</span>
+    <h2 data-en="What I <em>record</em>">Что я <em>записываю</em></h2>
+  </div>
+  <div class="sheet rv"><table>
+    <thead><tr><th data-en="Channel">Канал</th><th data-en="Instrument">Инструмент</th><th data-en="Parts">Задачи</th></tr></thead>
+    <tbody>
+      <tr><td class="ch">GTR 1</td><td data-en="Acoustic · Takamine EF740SGN">Акустика · Takamine EF740SGN</td><td data-en="Rhythm, solos, fills between vocal lines">Аккомпанемент, соло, подыгрыши между фразами</td></tr>
+      <tr><td class="ch">GTR 2</td><td data-en="Nylon · Manuel Rodriguez C11">Нейлон · Manuel Rodriguez C11</td><td data-en="Solo parts, ballads">Сольные партии, баллады</td></tr>
+      <tr><td class="ch">GTR 3</td><td data-en="Electric · Fender Mahogany">Электро · Fender Mahogany</td><td data-en="Rhythm, funk, blues and rock solos, chorus and wah">Ритм, фанк, блюз и рок-соло, chorus и wah</td></tr>
+      <tr><td class="ch">AI → LIVE</td><td data-en="Any of the three">Любая из трёх</td><td data-en="Re-playing guitar from AI tracks or MIDI">Переигровка гитары из ИИ-трека или MIDI</td></tr>
+    </tbody>
+  </table></div>
+  <div class="kaz rv" id="kaz">
+    <span class="label" data-en="Kazakh style: uneven phrases are no problem">Казахский стиль: неровные фразы не проблема</span>
+    <div class="bars" role="img" aria-label="Am 6 тактов, Dm 3, Em 2">
+      <div class="bar" style="flex:6">Am · 6</div><div class="bar b2" style="flex:3">Dm · 3</div><div class="bar b3" style="flex:2">Em · 2</div>
+    </div>
+  </div>
+</div></section>
 
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/zC6y7sSlA2c" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Эстрадный проект (соло с 2:44)</h3>
-                        <p>Пример плотного звучания и соло на электрогитаре</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="how"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Workflow">Порядок работы</span>
+    <h2 data-en="How we <em>work</em>">Как мы <em>работаем</em></h2>
+  </div>
+  <ol class="steps rv">
+    <li><b data-en="Send the material">Присылаете материал</b><p data-en="The full track with vocals, so I can hear the melody and play between the phrases. Guitar parts as a separate track, if you have them. BPM and key.">Плюсовку с вокалом, чтобы я слышал мелодию и играл между фразами. Гитарные партии отдельной дорожкой, если есть. BPM и тональность.</p></li>
+    <li><b data-en="Free sample">Бесплатный фрагмент</b><p data-en="I record 15–30 seconds, you listen and decide.">Записываю 15–30 секунд, вы слушаете и решаете.</p></li>
+    <li><b data-en="Session">Запись</b><p data-en="Two alternative rhythm takes plus a solo. 2–3 days.">Два варианта аккомпанемента и соло. Срок 2–3 дня.</p></li>
+    <li><b data-en="Ready stems">Готовые дорожки</b><p data-en="WAV 16/24-bit, 48 kHz, ready to mix. Up to two revisions.">WAV 16/24 бит, 48 кГц, готово к сведению. До двух правок.</p></li>
+  </ol>
+</div></section>
 
-    <!-- 3.1. БЛОК АУДИОПРИМЕРОВ (MP3 ПЛЕЕРЫ) -->
-    <section class="audio-section">
-        <div class="container">
-            <h2>Аудио <span>примеры</span></h2>
-            <div class="audio-grid">
-                <div class="audio-card">
-                    <div class="audio-title">🎸 Гитарное соло (Рок / Поп)</div>
-                    <audio controls="">
-                        <source src="track1.mp3" type="audio/mpeg">
-                        Ваш браузер не поддерживает аудио элемент.
-                    </audio>
-                </div>
+<section id="about"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="About">Обо мне</span>
+    <h2 data-en="Sergey <em>Cha</em>">Сергей <em>Ча</em></h2>
+  </div>
+  <div class="about rv">
+    <figure><img src="img/album-2012.jpg" alt="Обложка альбома «Фрагменты», 2012" loading="lazy"><figcaption data-en="Solo album «Fragments», 2012">Авторский альбом «Фрагменты», 2012</figcaption></figure>
+    <ul class="facts">
+      <li><span class="k" data-en="Stage">Сцена</span><span data-en="Guitarist of the Korean Theatre in Almaty since the late 1990s">Гитарист Корейского театра в Алматы с конца 1990-х</span></li>
+      <li><span class="k" data-en="Film">Кино</span><span data-en="Guitar for the films «Kino po ponyatiyam», «Semyanin», «Semeinye strasti» and the soundtrack of the series «Bomzh Borya»">Гитара в фильмах «Кино по понятиям», «Семьянин», «Семейные страсти» и в саундтреке сериала «Бомж Боря»</span></li>
+      <li><span class="k" data-en="Styles">Стили</span><span data-en="Pop, ballads, blues, rock, funk, Kazakh style">Эстрада, баллады, блюз, рок, фанк, казахский стиль</span></li>
+    </ul>
+  </div>
+  <div class="stage rv">
+    <figure><img src="img/stage-acoustic.jpg" alt="Сергей Ча с акустической гитарой на осеннем концерте" loading="lazy"><figcaption data-en="Autumn concert · acoustic">Осенний концерт · акустика</figcaption></figure>
+    <figure><img src="img/stage-fender.jpg" alt="Сергей Ча с Fender на концерте «Всё о любви»" loading="lazy"><figcaption data-en="Concert «All About Love», 2024">Концерт «Всё о любви», 2024</figcaption></figure>
+    <figure><img src="img/soundtrack.jpg" alt="Сергей Ча записывает электрогитару для саундтрека" loading="lazy"><figcaption data-en="Recording the «Bomzh Borya» soundtrack">Запись саундтрека к «Бомж Боре»</figcaption></figure>
+  </div>
+</div></section>
 
-                <div class="audio-card">
-                    <div class="audio-title">🎶 Акустическая аранжировка</div>
-                    <audio controls="">
-                        <source src="track2.mp3" type="audio/mpeg">
-                        Ваш браузер не поддерживает аудио элемент.
-                    </audio>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="gear" style="background:var(--bg2)"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Gear">Оборудование</span>
+    <h2 data-en="Studio <em>setup</em>">Студийный <em>сетап</em></h2>
+  </div>
+  <div class="gear rv">
+    <div><h3 data-en="Guitars">Гитары</h3><ul>
+      <li><span data-en="Electric">Электро</span><b>Fender Mahogany Limited Edition</b></li>
+      <li><span data-en="Acoustic (steel)">Акустика (металл)</span><b>Takamine EF740SGN</b></li>
+      <li><span data-en="Classical (nylon)">Классика (нейлон)</span><b>Manuel Rodriguez C11 Cutaway</b></li>
+    </ul></div>
+    <div><h3 data-en="Signal chain">Звуковой тракт</h3><ul>
+      <li><span data-en="Interface">Интерфейс</span><b>RME Babyface</b></li>
+      <li><span data-en="Microphone">Микрофон</span><b>Rode NT1-A</b></li>
+      <li><span data-en="Monitors">Мониторы</span><b>KRK VXT4</b></li>
+      <li><span data-en="Processor">Процессор</span><b>Mooer GE250</b></li>
+      <li><span>DAW</span><b>Cubase 12</b></li>
+    </ul></div>
+  </div>
+  <figure class="axe rv">
+    <img src="img/fender-body.jpg" alt="Электрогитара Fender Stratocaster Mahogany Limited Edition" loading="lazy"><span class="shine" aria-hidden="true"></span>
+    <figcaption>
+      <span class="label" data-en="Main electric">Основная электрогитара</span>
+      <b>Fender Stratocaster</b>
+      <span class="spec">Mahogany · Limited Edition · Made in USA</span>
+    </figcaption>
+  </figure>
+</div></section>
 
-    <!-- 4. БЛОК ОБОРУДОВАНИЯ -->
-    <section id="gear" class="gear-section">
-        <div class="container">
-            <h2>Студийный <span>сетап</span></h2>
-            <div class="gear-grid">
-                <div class="gear-category">
-                    <h3>Инструменты</h3>
-                    <ul class="gear-list">
-                        <li><strong>Электрогитара:</strong> Fender Mahogany Limited Edition</li>
-                        <li><strong>Акустика (металл):</strong> Takamine EF740SGN</li>
-                        <li><strong>Классика (нейлон):</strong> Manuel Rodriguez C11 Cutaway Electric Neck Nogal</li>
-                    </ul>
-                </div>
+<section id="contacts" class="contact"><div class="wrap">
+  <div class="sec-head rv">
+    <span class="label" data-en="Contact">Контакты</span>
+    <h2 data-en="Send me <em>your track</em>">Пришлите <em>ваш трек</em></h2>
+    <p data-en="I usually reply within a few hours, Almaty time (UTC+5).">Обычно отвечаю в течение нескольких часов, время Алматы (UTC+5).</p>
+  </div>
+  <div class="cgrid rv">
+    <div class="c"><div><div class="label">Telegram</div><a class="v" href="https://t.me/SergeyChasb" target="_blank" rel="noopener">t.me/SergeyChasb</a></div></div>
+    <div class="c"><div><div class="label">WhatsApp</div><a class="v" id="wa" href="https://wa.me/77017888012" target="_blank" rel="noopener">+7 701 788 80 12</a></div><button type="button" data-copy="wa" data-en="Copy">Копировать</button></div>
+    <div class="c"><div><div class="label">Email</div><a class="v" id="em" href="mailto:chasb1974@gmail.com">chasb1974@gmail.com</a></div><button type="button" data-copy="em" data-en="Copy">Копировать</button></div>
+    <div class="c"><div><div class="label">Instagram</div><a class="v" href="https://www.instagram.com/chasb1974" target="_blank" rel="noopener">@chasb1974</a></div></div>
+    <div class="c"><div><div class="label">AirGigs</div><a class="v" href="https://www.airgigs.com/session-guitarists/109615/Professional-Session-Guitar-%7C-Live--AI-Humanizing" target="_blank" rel="noopener" data-en="Profile ↗">Профиль ↗</a></div></div>
+    <div class="c"><div><div class="label">Fiverr</div><a class="v" href="https://www.fiverr.com/sergeycha/professional-acoustic-guitar-recor" target="_blank" rel="noopener">sergeycha ↗</a></div></div>
+  </div>
+</div></section>
 
-                <div class="gear-category">
-                    <h3>Звуковой тракт</h3>
-                    <ul class="gear-list">
-                        <li><strong>Аудиоинтерфейс:</strong> RME Babyface</li>
-                        <li><strong>Микрофон:</strong> Rode NT1-A</li>
-                        <li><strong>Мониторинг:</strong> KRK VXT 4</li>
-                        <li><strong>Гитарный процессор:</strong> Mooer GE250</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer><div class="wrap" data-en="Sergey Cha · session guitar · Almaty, Kazakhstan">Сергей Ча · сессионная гитара · Алматы, Казахстан</div></footer>
+<a class="fab" href="https://t.me/SergeyChasb" target="_blank" rel="noopener" data-en="Message me">Написать</a>
 
-    <!-- 5. БЛОК КОНТАКТОВ -->
-    <section id="contacts" class="contact-section">
-        <div class="container">
-            <h2>Обсудить <span>ваш проект</span></h2>
-            
-            <div class="contact-container">
-                <!-- Карточка с адресами через косую черту -->
-                <div class="email-card">
-                    <div class="email-label">Электронная почта:</div>
-                    <div class="email-line">
-                        <a href="mailto:chasb@mail.ru" class="email-link">chasb@mail.ru</a>
-                        <span style="color: #666666; padding: 0 6px;">/</span>
-                        <a href="mailto:chasb1974@gmail.com" class="email-link">chasb1974@gmail.com</a>
-                    </div>
-                </div>
+<script>
+(function(){
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-                <!-- Разделитель -->
-                <div class="contact-divider">
-                    <span>или мессенджеры</span>
-                </div>
+/* ---------- RU / EN ---------- */
+const nodes=[...document.querySelectorAll('[data-en]')];
+nodes.forEach(n=>n.dataset.ru=n.innerHTML);
+let soundOn=false, lang='ru';
+function setLang(l){
+  lang=l;
+  nodes.forEach(n=>n.innerHTML=n.dataset[l]);
+  document.documentElement.lang=l;
+  document.getElementById('lang-ru').setAttribute('aria-pressed',l==='ru');
+  document.getElementById('lang-en').setAttribute('aria-pressed',l==='en');
+  updateSoundLabel();
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.getElementById('lang-ru').onclick=()=>setLang('ru');
+document.getElementById('lang-en').onclick=()=>setLang('en');
 
-                <!-- Кнопки быстрых переходов -->
-                <div class="social-links">
-                    <a href="https://wa.me/77017888012" target="_blank" class="social-btn wa">Написать в WhatsApp</a>
-                    <a href="https://t.me/SergeyChasb" target="_blank" class="social-btn tg">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ---------- Strings + pluck sound ---------- */
+const cv=document.getElementById('strings'), ctx=cv.getContext('2d');
+const notes=[82.41,110,146.83,196,246.94,329.63]; // E A D G B E
+let W=0,H=0,dpr=1, strings=[];
+function layout(){
+  dpr=Math.min(devicePixelRatio||1,2);
+  W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
+  const top=H*0.18, gap=(H*0.66)/5;
+  strings=notes.map((f,i)=>({y:top+gap*i, amp:strings[i]?strings[i].amp:0, x0:.5, t:0, w:1.4+ (5-i)*0.45, f, i}));
+}
+let ac=null, bufs={};
+function pluckBuf(f){
+  if(bufs[f]) return bufs[f];
+  const sr=ac.sampleRate, len=Math.floor(sr*2.2), b=ac.createBuffer(1,len,sr), d=b.getChannelData(0);
+  const N=Math.round(sr/f), ring=new Float32Array(N);
+  for(let i=0;i<N;i++) ring[i]=Math.random()*2-1;
+  let p=0;
+  for(let i=0;i<len;i++){const nx=(p+1)%N; const v=ring[p]; ring[p]=0.996*0.5*(ring[p]+ring[nx]); d[i]=v*0.35; p=nx;}
+  return bufs[f]=b;
+}
+function playNote(s,vel){
+  if(!soundOn||!ac) return;
+  const src=ac.createBufferSource(); src.buffer=pluckBuf(s.f);
+  const g=ac.createGain(); g.gain.value=Math.min(1,0.25+vel*0.08);
+  src.connect(g).connect(ac.destination); src.start();
+}
+function pluck(s,x,vel){
+  s.amp=Math.min(14,3+vel*1.2); s.x0=Math.max(.08,Math.min(.92,x/W)); s.t=0;
+  if(vel>0.5) playNote(s,vel);
+}
+const sb=document.getElementById('sound');
+function updateSoundLabel(){
+  sb.setAttribute('aria-pressed',soundOn);
+  sb.textContent = lang==='ru' ? ('Звук струн: '+(soundOn?'вкл':'выкл')) : ('Sound: '+(soundOn?'on':'off'));
+}
+sb.onclick=()=>{
+  try{ if(!ac) ac=new (window.AudioContext||window.webkitAudioContext)(); if(ac.state==='suspended') ac.resume(); }catch(e){}
+  soundOn=!soundOn && !!ac; updateSoundLabel();
+  if(soundOn) strings.forEach((s,i)=>setTimeout(()=>pluck(s,W*.5,6),i*70));
+};
+let last=null;
+function move(x,y){
+  const r=cv.getBoundingClientRect(); x-=r.left; y-=r.top;
+  if(last){ const vel=Math.hypot(x-last.x,y-last.y)/4;
+    strings.forEach(s=>{ if((last.y-s.y)*(y-s.y)<0) pluck(s,x,Math.max(vel,1)); }); }
+  last={x,y};
+}
+addEventListener('pointermove',e=>{ if(e.target.closest&&e.target.closest('.hero')) move(e.clientX,e.clientY); else last=null; },{passive:true});
+cv.addEventListener('touchmove',e=>{const t=e.touches[0]; move(t.clientX,t.clientY)},{passive:true});
+cv.addEventListener('touchend',()=>last=null);
+function draw(){
+  ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+  strings.forEach(s=>{
+    s.t+=1; const decay=Math.exp(-s.t/70), osc=Math.sin(s.t*(0.35+s.i*0.05))*s.amp*decay;
+    if(decay<0.01) s.amp=0;
+    const glow=Math.min(1,Math.abs(osc)/6);
+    ctx.beginPath();
+    for(let x=0;x<=W;x+=6){
+      const u=x/W, shape=u<s.x0? u/s.x0 : (1-u)/(1-s.x0);
+      const y=s.y+osc*shape;
+      x?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }
+    ctx.lineWidth=s.w; ctx.strokeStyle=`rgba(255,${190-glow*40},${70-glow*40},${0.22+glow*0.6})`;
+    ctx.shadowColor='rgba(255,183,3,.8)'; ctx.shadowBlur=glow*14; ctx.stroke(); ctx.shadowBlur=0;
+  });
+  if(!reduce) requestAnimationFrame(draw);
+}
+layout(); addEventListener('resize',()=>{layout(); if(reduce) draw();});
+draw();
+if(!reduce) setTimeout(()=>strings.forEach((s,i)=>setTimeout(()=>pluck(s,W*(.3+i*.07),5),i*90)),500);
 
-</body>
-</html>
-                <div class="email-card">
-                    <div class="email-label">Электронная почта:</div>
-                    <div class="email-line">
-                        <a href="mailto:chasb@mail.ru" class="email-link">chasb@mail.ru</a>
-                        <span style="color: #666666; padding: 0 6px;">/</span>
-                        <a href="mailto:chasb1974@gmail.com" class="email-link">chasb1974@gmail.com</a>
-                    </div>
-                </div>
+/* ---------- Waveforms: AI vs live ---------- */
+document.querySelectorAll('.wave').forEach(c=>{
+  const g=c.getContext('2d'), w=c.clientWidth, h=c.clientHeight, d=Math.min(devicePixelRatio||1,2);
+  c.width=w*d;c.height=h*d;g.scale(d,d);
+  const live=c.dataset.mode==='live'; let seed=live?7:3; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  const n=Math.floor(w/5);
+  for(let i=0;i<n;i++){
+    const beat=i%8;
+    let a = live ? (0.25+0.75*Math.abs(Math.sin(i*0.21+rnd()*1.3))*(beat===0?1:0.55+rnd()*0.45)) : (beat%2===0?0.7:0.7);
+    const bh=a*h*0.9;
+    g.fillStyle = live ? `rgba(255,${150+Math.floor(a*60)},40,${0.55+a*0.45})` : 'rgba(168,153,138,.55)';
+    g.fillRect(i*5,(h-bh)/2,3,bh);
+  }
+});
 
-                <!-- Разделитель -->
-                <div class="contact-divider">
-                    <span>или мессенджеры</span>
-                </div>
+/* ---------- YouTube cards: thumbnail first, player on click ---------- */
+document.querySelectorAll('[data-yt]').forEach(card=>{
+  const id=card.dataset.yt, box=card.querySelector('.vbox'), title=card.querySelector('h3').textContent;
+  const cov=document.createElement('div'); cov.className='cover'; cov.innerHTML='<span>YOUTUBE</span><b></b>'; cov.querySelector('b').textContent=title; box.appendChild(cov);
+  const img=new Image(); img.alt=title; img.loading='lazy'; img.src=`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  img.onerror=()=>img.remove(); box.appendChild(img);
+  const b=document.createElement('button'); b.className='play'; b.type='button'; b.setAttribute('aria-label','▶ '+title);
+  b.innerHTML='<span class="disc"></span>'; box.appendChild(b);
+  b.onclick=()=>{
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0${card.dataset.start?'&start='+card.dataset.start:''}`;
+    f.allow='autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen=true; f.title=title;
+    box.innerHTML=''; box.appendChild(f);
+    // in a sandbox where YouTube can't embed, open it on YouTube instead
+    setTimeout(()=>{ if(!f.isConnected) return; },0);
+  };
+});
+document.querySelectorAll('video').forEach(v=>{ v.addEventListener('error',()=>v.closest('.vcard').classList.add('missing')); if(v.error) v.closest('.vcard').classList.add('missing'); });
 
-                <!-- Кнопки быстрых переходов -->
-                <div class="social-links">
-                    <a href="https://wa.me/77017888012" target="_blank" class="social-btn wa">Написать в WhatsApp</a>
-                    <a href="https://t.me/SergeyChasb" target="_blank" class="social-btn tg">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
+/* ---------- Audio players ---------- */
+let cur=null;
+const fmt=t=>isFinite(t)?Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'):'0:00';
+document.querySelectorAll('.track').forEach(tr=>{
+  const a=new Audio(); a.preload='none'; a.src=tr.dataset.src;
+  const bar=tr.querySelector('.tbar i'), tm=tr.querySelector('time'), btn=tr.querySelector('.tp');
+  a.addEventListener('timeupdate',()=>{bar.style.width=(a.currentTime/a.duration*100||0)+'%'; tm.textContent=fmt(a.currentTime)});
+  a.addEventListener('ended',()=>tr.classList.remove('on'));
+  btn.onclick=()=>{ if(a.paused){ if(cur&&cur!==a){cur.pause();document.querySelectorAll('.track.on').forEach(x=>x.classList.remove('on'));} a.play().catch(()=>{}); cur=a; tr.classList.add('on'); } else { a.pause(); tr.classList.remove('on'); } };
+  tr.querySelector('.tbar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect(); if(a.duration) a.currentTime=(e.clientX-r.left)/r.width*a.duration;};
+});
+document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>{ if(cur){cur.pause();document.querySelectorAll('.track.on').forEach(x=>x.classList.remove('on'));} }));
+
+/* ---------- Scroll reveal + counters ---------- */
+const vh=innerHeight;
+const els=[...document.querySelectorAll('.rv')];
+if(!reduce && 'IntersectionObserver' in window){
+  els.forEach(el=>{ if(el.getBoundingClientRect().top>vh) el.classList.add('pre'); });
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); if(e.target.id==='kaz') e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
+  els.forEach(el=>io.observe(el));
+  const so=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; so.unobserve(e.target);
+    const el=e.target,to=+el.dataset.count,suf=el.dataset.suffix||'',t0=performance.now();
+    const step=t=>{const k=Math.min(1,(t-t0)/1200); el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+suf; if(k<1) requestAnimationFrame(step);};
+    requestAnimationFrame(step); }),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>so.observe(el));
+} else { document.getElementById('kaz').classList.add('in'); }
+
+/* ---------- Copy buttons ---------- */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+  const ok=()=>{const o=b.innerHTML; b.textContent=lang==='ru'?'Скопировано':'Copied'; setTimeout(()=>b.innerHTML=o,1500)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(txt).then(ok,sel)}catch(e){sel()}
+}));
+
+let saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
+if(saved==='en') setLang('en');
+})();
+</script>
 </body>
 </html>
