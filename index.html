@@ -145,9 +145,9 @@ section{padding-block:clamp(56px,9vw,96px)}
 @media (max-width:640px){.about{grid-template-columns:1fr}.about figure{max-width:200px}.facts li{grid-template-columns:1fr;gap:2px}}
 
 /* stage gallery */
-.stage{display:grid;grid-template-columns:1.2fr 1.2fr .8fr;gap:12px;margin-top:36px}
-.stage figure{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-width:100%}
-.stage img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.stage{margin-top:36px;max-width:720px}
+.stage figure{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;max-width:100%}
+.stage img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .stage figure:hover img{transform:scale(1.06)}
 .stage figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font:500 .75rem var(--mono);color:var(--fg);background:linear-gradient(transparent,rgba(0,0,0,.8))}
 @media (max-width:640px){.stage{grid-template-columns:1fr 1fr}.stage figure:first-child{grid-column:1/-1;aspect-ratio:1}}
@@ -339,9 +339,7 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem;border-top:1px sol
     </ul>
   </div>
   <div class="stage rv">
-    <figure><img src="img/stage-acoustic.jpg" alt="Сергей Ча с акустической гитарой на осеннем концерте" loading="lazy"><figcaption data-en="Autumn concert · acoustic">Осенний концерт · акустика</figcaption></figure>
-    <figure><img src="img/stage-fender.jpg" alt="Сергей Ча с Fender на концерте «Всё о любви»" loading="lazy"><figcaption data-en="Concert «All About Love», 2024">Концерт «Всё о любви», 2024</figcaption></figure>
-    <figure><img src="img/soundtrack.jpg" alt="Сергей Ча записывает электрогитару для саундтрека" loading="lazy"><figcaption data-en="Recording the «Bomzh Borya» soundtrack">Запись саундтрека к «Бомж Боре»</figcaption></figure>
+    <figure><img src="img/stage-acoustic.jpg" alt="Сергей Ча с акустической гитарой на концерте" loading="lazy"></figure>
   </div>
 </div></section>
 
