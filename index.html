@@ -272,6 +272,10 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem;border-top:1px sol
       <div class="vbox"><video controls preload="none" playsinline poster="img/nylon-poster.jpg" src="media/nylon.mp4" onerror="this.closest('.vcard').classList.add('missing')"></video><span class="soon" data-en="Video coming soon">Видео скоро</span></div>
       <div class="vinfo"><span class="chip" data-en="Nylon">Нейлон</span><h3 data-en="Classical guitar recording">Запись классической гитары</h3><p data-en="Intimate studio sound, Manuel Rodriguez C11">Тёплый студийный звук, Manuel Rodriguez C11</p></div>
     </article>
+    <article class="vcard rv">
+      <div class="vbox"><img src="img/stage-fender.jpg" alt="" loading="lazy" style="object-position:50% 22%"><audio controls preload="none" src="media/rock-lead.mp3" style="position:absolute;left:0;right:0;bottom:0;width:100%"></audio></div>
+      <div class="vinfo"><span class="chip" data-en="Electric · rock">Электро · рок</span><h3 data-en="Rock lead">Рок-соло</h3><p data-en="Fender, high-gain lead (audio)">Fender, перегруженное соло (аудио)</p></div>
+    </article>
     <article class="vcard rv" data-yt="rQpCtfNVDaw"><div class="vbox"></div>
       <div class="vinfo"><span class="chip" data-en="Session">Сессия</span><h3>Ayree — Okpeli sezim</h3><p data-en="Session guitar parts">Сессионные гитарные партии</p></div></article>
     <article class="vcard rv" data-yt="ceobWjtdsP8"><div class="vbox"></div>
@@ -284,18 +288,6 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem;border-top:1px sol
       <div class="vinfo"><span class="chip" data-en="Electric solo">Соло на электро</span><h3 data-en="Pop project, solo at 2:44">Эстрадный проект, соло с 2:44</h3><p data-en="Dense band sound and electric solo">Плотное звучание и соло на электрогитаре</p></div></article>
     <article class="vcard rv" data-yt="TEbuh3g_O5Q"><div class="vbox"></div>
       <div class="vinfo"><span class="chip" data-en="Pop">Поп</span><h3 data-en="Dreams Come Alive">Оживают мечты</h3><p data-en="Commercial pop production">Коммерческий эстрадный проект</p></div></article>
-  </div>
-</div></section>
-
-<section id="audio"><div class="wrap">
-  <div class="sec-head rv">
-    <span class="label" data-en="Audio demos">Аудиодемо</span>
-    <h2 data-en="Just <em>listen</em>">Просто <em>послушайте</em></h2>
-  </div>
-  <div class="tracks rv">
-    <div class="track" data-src="media/rock-lead.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Rock lead">Рок-соло</b><span data-en="Electric · Fender">Электро · Fender</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
-    <div class="track" data-src="media/nylon-mix.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Nylon in the mix">Нейлон в миксе</b><span data-en="Classical · Rodriguez">Классика · Rodriguez</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
-    <div class="track" data-src="media/funk-demo.mp3"><button type="button" class="tp" aria-label="Play"></button><div class="tm"><b data-en="Funk rhythm">Фанк-ритм</b><span data-en="Electric · clean">Электро · чистый звук</span><div class="tbar"><i></i></div></div><time>0:00</time></div>
   </div>
 </div></section>
 
@@ -547,6 +539,8 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',(
   const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)};
   try{navigator.clipboard.writeText(txt).then(ok,sel)}catch(e){sel()}
 }));
+
+document.addEventListener('play',e=>{document.querySelectorAll('audio,video').forEach(m=>{if(m!==e.target)m.pause()})},true);
 
 let saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
 if(saved==='en') setLang('en');
