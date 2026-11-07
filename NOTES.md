@@ -48,6 +48,9 @@ Instagram @chasb1974, AirGigs, Fiverr (sergeycha).
 - 2026-11-06 — в начало «Портфолио» добавлены два официальных клипа с гитарой Сергея:
   Xursandbek Atamuratov — Barin joydim (XpI_HWjt8hU) и Musa Marat — Sag'inaman
   (dpMOrcrLG2A, соло придумал и сыграл Сергей; разрешение аранжировщика получено).
+- 2026-11-07 — по просьбе Сергея убран клип Musa Marat — Sag'inaman («Скучаю»,
+  dpMOrcrLG2A): слова песни о умершей девушке, не подходит для визитки. Остался
+  Xursandbek Atamuratov — Barin joydim.
 
 ## Что дальше (идеи, не сделано)
 - Проверить, что сайт открывается и выглядит нормально на телефоне.
