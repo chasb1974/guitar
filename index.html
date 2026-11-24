@@ -669,5 +669,46 @@ let saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
 if(saved==='en') setLang('en');
 })();
 </script>
+<script>
+/* analytics events */
+(function(){
+  function ev(n){try{if(window.gtag)gtag('event',n)}catch(e){}}
+  function lg(){return document.documentElement.lang==='en'?'en':'ru'}
+  var YT={rQpCtfNVDaw:'ayree',ceobWjtdsP8:'mynbay','712wl7f74yI':'zhamil',XpI_HWjt8hU:'xursandbek',zC6y7sSlA2c:'estrada',TEbuh3g_O5Q:'dreams'};
+  var seen={};
+  function once(n){if(seen[n])return;seen[n]=1;ev(n)}
+  window.addEventListener('load',function(){setTimeout(function(){ev('view_'+lg())},600)});
+  document.addEventListener('play',function(e){
+    var m=e.target;if(!m||!m.tagName)return;
+    var t=m.tagName.toLowerCase();if(t!=='video'&&t!=='audio')return;
+    var s=(m.getAttribute('src')||(m.querySelector('source')||{}).src||'').split('/').pop().split('.')[0];
+    once('play_'+t+'_'+s.replace(/[^a-z0-9_]/gi,'_'));
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;if(!t||!t.closest)return;
+    var yt=t.closest('[data-yt]');
+    if(yt){var id=yt.getAttribute('data-yt');once('yt_'+(YT[id]||id).replace(/[^a-z0-9_]/gi,'_'));return}
+    var el=t.closest('a,button');if(!el)return;
+    var h=el.getAttribute('href')||'',id2=el.id||'';
+    var sec=el.closest('section,header'),place=(sec&&sec.id)?sec.id:'top';
+    if(h.indexOf('t.me/')>-1)return ev('click_telegram_'+(el.classList.contains('fab')?'float':place));
+    if(h.indexOf('wa.me/')>-1)return ev('click_whatsapp');
+    if(h.indexOf('mailto:')===0)return ev('click_email');
+    if(h.indexOf('instagram.com')>-1)return ev('click_instagram');
+    if(h.indexOf('airgigs.com')>-1)return ev('click_airgigs');
+    if(h.indexOf('fiverr.com')>-1)return ev('click_fiverr');
+    if(h.indexOf('dzen.ru')>-1)return ev('click_dzen');
+    if(h.indexOf('medium.com')>-1)return ev('click_medium');
+    if(id2==='lang-en')return ev('switch_en');
+    if(id2==='lang-ru')return ev('switch_ru');
+    var c=el.getAttribute('data-copy');
+    if(c)return ev('copy_'+(c==='wa'?'whatsapp':'email'));
+    var tx=(el.textContent||'').trim();
+    if(tx==='\u20bd')return ev('currency_rub');
+    if(tx==='$')return ev('currency_usd');
+    if(tx==='\u20b8')return ev('currency_kzt');
+  },true);
+})();
+</script>
 </body>
 </html>
